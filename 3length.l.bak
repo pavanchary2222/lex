@@ -1,0 +1,34 @@
+%{
+#include<stdio.h>
+int l;
+int fun();
+%}
+
+%%
+[a-zA-Z0-9]+ {l=yyleng;fun();}
+%%
+
+int fun(){
+if(yytext[0]=='A')
+{
+	if(l==3)
+	{
+		printf("%s String is of 3 lenght starts with A\n",yytext);
+	}
+	else
+	{
+		printf("String is not of 3 length\n");
+	}
+}
+}
+	
+int main()
+{
+	printf("Enter numbers: ");
+	yylex();
+	return 0;
+}
+
+int yywrap(){
+return 1;
+}

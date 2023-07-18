@@ -1,0 +1,20 @@
+%{
+#include<stdio.h>
+%}
+
+%%
+"<" |
+">" |
+"<=" |
+">=" |
+"==" |
+"!=" {printf("is a relational operator");}
+%%
+
+int yywrap(){return 1;}
+
+int main(){
+printf("Enter number: ");
+yylex();
+return 0;
+}
